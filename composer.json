@@ -1,0 +1,26 @@
+{
+    "name": "eubby/social",
+    "description": "",
+    "authors": [
+        {
+            "name": "Yonanne Remedio",
+            "email": "eubby06@yahoo.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.*",
+        "phpunit/phpunit": "3.7.*",
+        "mockery/mockery": "dev-master",
+        "eubby/acl": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Eubby\\Social\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
