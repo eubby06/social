@@ -1,17 +1,52 @@
 <?php namespace Eubby\Social\Controllers;
 
-use Illuminate\Routing\Controllers\Controller;
-use App,
+use Controller, 
+	Config, 
 	View,
 	Acl;
 
-class BaseController extends Controller
-{
+use Eubby\Social\Services\Provider\ProviderInterface;
 
-	public function __construct(Acl $acl)
+abstract class BaseController extends Controller {
+
+	protected $layout 			= null;
+
+	protected $theme 			= null;
+	
+	protected $provider 		= null;
+
+	protected $objects 			= array();
+
+
+	public function __construct(ProviderInterface $provider)
 	{
-		$this->acl 		= $acl ? $acl->getFacadeRoot() : App::make('acl');
-		$this->layout 	= "eubby/social::layouts.frontend";
+		$this->objects['acl'] 	= Acl::getFacadeRoot();
+		$this->provider 		= $provider;
+		$this->theme 			= 'default';
+		$this->layout 			= "social.theme::{$this->theme}.layouts.home";
+	}
+
+	public function setObject($object)
+	{
+		$getObject = 'get' . ucfirst($object);
+
+		$this->objects[$object] = $this->provider->$getObject();
+	}
+
+	public function getObject($object)
+	{
+		if (isset($this->objects[$object]))
+		{
+			$object = $this->objects[$object];
+		}
+		else
+		{
+			$getObject = 'get' . ucfirst($object);
+
+			$object = $this->provider->$getObject();
+		}
+		
+		return $object;
 	}
 
 	protected function setupLayout()
@@ -21,4 +56,5 @@ class BaseController extends Controller
 			$this->layout = View::make($this->layout);
 		}
 	}
+
 }

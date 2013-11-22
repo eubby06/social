@@ -1,6 +1,7 @@
 <?php namespace Eubby\Social;
 
 use Illuminate\Support\ServiceProvider;
+use Config;
 
 class SocialServiceProvider extends ServiceProvider {
 
@@ -19,7 +20,9 @@ class SocialServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('eubby/social', 'eubby/social');
-
+		
+		include __DIR__ . '/../../start.php';
+		include __DIR__ . '/../../filter.php';
 		include __DIR__ . '/../../route.php';
 	}
 
@@ -30,7 +33,10 @@ class SocialServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-
+		$this->app->bind(
+				'Eubby\Social\Services\Provider\ProviderInterface', 
+				'Eubby\Social\Services\Provider\Provider'
+				);
 	}
 
 	/**

@@ -7,8 +7,6 @@ class HomeController extends BaseController
 {
 	public function getIndex()
 	{
-		$this->layout->content = View::make('eubby/social::login');
-
 		return $this->layout;
 	}
 }
