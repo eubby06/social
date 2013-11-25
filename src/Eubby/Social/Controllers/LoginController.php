@@ -14,17 +14,27 @@ class LoginController extends BaseController
 
 	public function postSignup()
 	{
+		$credentials = array(
+				'first_name' 			=> Input::get('first_name'),
+				'last_name' 			=> Input::get('last_name'),
+				'email' 				=> Input::get('email'),
+				'password' 				=> Input::get('password'),
+				'password_confirmation' => Input::get('password_confirmation'),
+				);
 
-		try
+		if ($this->getObject('acl')->register($credentials))
 		{
-			$user = $this->getObject('acl')->register(array(
-				'email' => Input::get('email'),
-				'password' => Input::get('password')
-				));
+			return 'success';
 		}
-		catch(\Exception $e)
-		{
-			return Redirect::back()->withErrors($e->getMessage());
-		}
+
+		return Redirect::back()
+						->withInput()
+						->withErrors($this->getObject('acl')->getErrors());
+		
+	}
+
+	public function postLogin()
+	{
+		dd(Input::all());
 	}
 }

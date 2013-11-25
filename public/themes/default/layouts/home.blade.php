@@ -37,7 +37,7 @@
         </div>
 
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+           {{ Form::open(array('route' => 'post_login', 'role' => 'form', 'class' => 'navbar-form navbar-right')) }}
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control">
             </div>

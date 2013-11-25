@@ -9,19 +9,19 @@
     
         <div class="form-group">
             <div class="col-xs-12">
-              <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name">
+              <input type="text" value="{{ Input::old('first_name') }}" name="first_name" class="form-control" id="first_name" placeholder="First Name">
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-xs-12">
-              <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Last Name">
+              <input type="text" value="{{ Input::old('last_name') }}" name="last_name" class="form-control" id="last_name" placeholder="Last Name">
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-xs-12">
-                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                <input type="email" value="{{ Input::old('email') }}" name="email" class="form-control" id="email" placeholder="Email">
             </div>
         </div>
 

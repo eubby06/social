@@ -5,6 +5,11 @@ Route::get('social/login', array(
 			'uses' => 'Eubby\Social\Controllers\LoginController@getIndex'
 			));
 
+Route::post('social/login', array(
+			'as' => 'post_login',
+			'uses' => 'Eubby\Social\Controllers\LoginController@postLogin'
+	));
+
 Route::post('social/signup', array(
 			'as' => 'signup',
 			'uses' => 'Eubby\Social\Controllers\LoginController@postSignup'
