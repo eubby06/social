@@ -23,7 +23,7 @@ abstract class BaseController extends Controller {
 		$this->objects['acl'] 	= Acl::getFacadeRoot();
 		$this->provider 		= $provider;
 		$this->theme 			= 'default';
-		$this->layout 			= "social.theme::{$this->theme}.layouts.home";
+		$this->layout 			= "social.theme::{$this->theme}.layouts.signup";
 	}
 
 	public function setObject($object)

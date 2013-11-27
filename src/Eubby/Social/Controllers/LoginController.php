@@ -7,7 +7,7 @@ class LoginController extends BaseController
 {
 	public function getIndex()
 	{
-		$this->layout->content = View::make("social.theme::{$this->theme}.frontend.user.signup");
+		$this->layout->content = View::make("social.theme::{$this->theme}.signup.index");
 
 		return $this->layout;
 	}
@@ -20,9 +20,23 @@ class LoginController extends BaseController
 				'email' 				=> Input::get('email'),
 				'password' 				=> Input::get('password'),
 				'password_confirmation' => Input::get('password_confirmation'),
+				'gender' 				=> Input::get('gender')
 				);
 
-		if ($this->getObject('acl')->register($credentials))
+		$birthdate = array(
+					Input::get('birthday_year'),
+					Input::get('birthday_month'),
+					Input::get('birthday_day')
+			);
+
+		if (Input::get('birthday_year') > 1 && 
+			Input::get('birthday_month')> 1 && 
+			Input::get('birthday_day') > 1) 
+		{
+			$credentials['birthdate'] = implode('-',$birthdate);
+		}
+
+		if ($this->getObject('acl')->register($credentials, true))
 		{
 			return 'success';
 		}
@@ -35,6 +49,16 @@ class LoginController extends BaseController
 
 	public function postLogin()
 	{
-		dd(Input::all());
+		$credentials = array(
+			'email' 	=> Input::get('email'),
+			'password' 	=> Input::get('password')
+			);
+
+		if ($this->getObject('acl')->authenticate($credentials))
+		{
+			return Redirect::route('wall')->with('success', 'Successful Login');
+		}
+
+		return Redirect::back()->withErrors('fail', 'Email or Password is not invalid');
 	}
 }

@@ -19,8 +19,13 @@ class CreateSocialUsersTable extends Migration {
 			$table->string('last_name');
 			$table->string('email');
 			$table->string('password');
+			$table->enum('gender', array('female','male'));
+			$table->date('birthdate');
 			$table->string('ip_address');
-			$table->enum('active', array('0','1'))->default(0);
+			$table->enum('activated', array('0','1'))->default(0);
+			$table->timestamp('activated_at');
+			$table->string('activation_code');
+			$table->string('persist_code');
 			$table->timestamps();
 			$table->softDeletes();
 		});

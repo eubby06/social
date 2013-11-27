@@ -1,5 +1,5 @@
 @if(Session::has('errors'))
-	<div class="alert alert-error">
+	<div class="alert alert-danger">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			<h4>Opps!...</h4>
 			@foreach($errors->all() as $error)

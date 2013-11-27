@@ -17,9 +17,9 @@ Route::post('social/signup', array(
 
 Route::group(array('prefix' => 'social', 'before' => 'social.auth'), function()
 {
-		Route::get('/', array(
-			'as' => 'home',
-			'uses' => 'Eubby\Social\Controllers\HomeController@getIndex'
-			));
 
+		Route::get('wall', array(
+			'as' => 'wall',
+			'uses' => 'Eubby\Social\Controllers\WallController@getIndex'
+			));
 });
