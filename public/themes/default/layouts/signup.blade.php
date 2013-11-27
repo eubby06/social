@@ -36,17 +36,8 @@
           <a class="navbar-brand" href="#">FlashBook</a>
         </div>
 
-        <div class="navbar-collapse collapse">
-           {{ Form::open(array('route' => 'post_login', 'role' => 'form', 'class' => 'navbar-form navbar-right')) }}
-            <div class="form-group">
-              <input type="text" name="email" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" name="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
+        @include('social.theme::default.__partials.topmenu')
+
       </div>
     </div>
 
