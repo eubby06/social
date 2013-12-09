@@ -56,9 +56,16 @@ class LoginController extends BaseController
 
 		if ($this->getObject('acl')->authenticate($credentials))
 		{
-			return Redirect::route('wall')->with('success', 'Successful Login');
+			return Redirect::route('social_wall')->with('success', 'Successful Login');
 		}
 
 		return Redirect::back()->withErrors('fail', 'Email or Password is not invalid');
+	}
+
+	public function getLogout()
+	{
+		$this->getObject('acl')->logout();
+
+		return Redirect::route('social_home');
 	}
 }

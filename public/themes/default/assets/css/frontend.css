@@ -1,5 +1,10 @@
 @import url("../vendor/css/bootstrap.min.css");
+*,html{font-size:12px;}
 body {
   padding-top: 70px;
   padding-bottom: 20px;
 }
+
+div.post a.username{font-weight:bold; display:block;}
+div.left-panel a.username{font-weight:bold;}
+div.posts {border-top:1px solid #eee;}

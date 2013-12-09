@@ -4,7 +4,7 @@
     <h1>Sign Up</h1>
     <p>It's free and always will be.</p>
 
-    {{ Form::open(array('route' => 'signup', 'role' => 'form', 'class' => 'form-horizontal')) }}
+    {{ Form::open(array('route' => 'social_signup', 'role' => 'form', 'class' => 'form-horizontal')) }}
     
         <div class="form-group">
             <div class="col-xs-12">

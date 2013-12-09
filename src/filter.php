@@ -2,5 +2,5 @@
 
 Route::filter('social.auth', function()
 {
-	if (! Acl::check()) return Redirect::route('login');
+	if (! Acl::check()) return Redirect::route('social_login');
 });
