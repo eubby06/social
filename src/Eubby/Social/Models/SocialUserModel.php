@@ -13,4 +13,9 @@ class SocialUserModel extends UserModel
 	'last_name' 		=> 'required',
 	'gender' 			=> 'required',
 	'birthdate' 		=> 'required');
+
+	public function fullName()
+	{
+		return $this->first_name . ' ' . $this->last_name;
+	}
 }

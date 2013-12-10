@@ -14,8 +14,9 @@ class Provider implements ProviderInterface
 
 	public function resolveModel($class)
 	{
-		$modelClass = '\\Eubby\Social\\Models\\' . $class;
+		$modelClass = '\\Eubby\Social\\Models\\Social' . $class . 'Model';
 		$serviceClass = '\\Eubby\Social\\Services\\' . $class . '\\'. $class;
+		$repoClass = '\\Eubby\Social\\Repositories\\' . $class;
 
 		//model class look up
 		if (class_exists($modelClass))
@@ -26,6 +27,18 @@ class Provider implements ProviderInterface
 		else if (class_exists($serviceClass))
 		{
 			return new $serviceClass();
+		}
+		//repo class look up
+		else if (class_exists($repoClass))
+		{
+			$modelName = str_replace('Repository', '', $class);
+			$modelClass = '\\Eubby\Social\\Models\\Social' . $modelName . 'Model';
+
+			$objModel = new $modelClass();
+
+			$repo = new $repoClass($objModel);
+
+			return $repo;
 		}
 		//container class look up
 		else if (App::make($class))

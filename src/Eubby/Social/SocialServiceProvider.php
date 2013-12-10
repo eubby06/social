@@ -37,6 +37,11 @@ class SocialServiceProvider extends ServiceProvider {
 				'Eubby\Social\Services\Provider\ProviderInterface', 
 				'Eubby\Social\Services\Provider\Provider'
 				);
+		
+		$this->app->bind('provider', function()
+		{
+			return new Eubby\Social\Services\Provider\Provider();
+		});
 	}
 
 	/**

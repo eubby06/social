@@ -31,4 +31,29 @@ Route::group(array('prefix' => 'social', 'before' => 'social.auth'), function()
 			'as' => 'social_wall',
 			'uses' => 'Eubby\Social\Controllers\WallController@getIndex'
 			));
+
+		Route::post('wall/post', array(
+			'as' => 'social_wall_post_post',
+			'uses' => 'Eubby\Social\Controllers\WallController@postPost'
+			));
+
+		Route::get('profile/{id}', array(
+			'as' => 'social_profile_get_edit',
+			'uses' => 'Eubby\Social\Controllers\ProfileController@getEdit'
+			));
+
+		Route::post('profile/{id}', array(
+			'as' => 'social_profile_post_edit',
+			'uses' => 'Eubby\Social\Controllers\ProfileController@postEdit'
+			));
+
+		Route::get('comment/create', array(
+			'as' => 'social_comment_get_create',
+			'uses' => 'Eubby\Social\Controllers\CommentController@getCreate'
+			));
+
+		Route::post('comment/create', array(
+			'as' => 'social_comment_post_create',
+			'uses' => 'Eubby\Social\Controllers\CommentController@postCreate'
+			));
 });

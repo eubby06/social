@@ -9,6 +9,6 @@ class Provider extends Facade {
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'Provider'; }
+	protected static function getFacadeAccessor() { return 'provider'; }
 
 }
