@@ -2,24 +2,24 @@
 
 use Eubby\Social\Models as Model;
 
-class SocialPostModel extends Model\SocialBaseModel
+class SocialCommentModel extends Model\SocialBaseModel
 {
 
-	public $table 				= 'social_posts';
+	public $table 				= 'social_comments';
 
 	protected $guarded 			= array('id');
 
 	protected $validation_rules = array(
-	'visibility' 		=> 'required',
-	'body' 				=> 'required');
+	'post_id' 		=> 'required',
+	'body' 			=> 'required');
 
 	public function user()
 	{
 		return $this->belongsTo('Eubby\Social\Models\SocialUserModel', 'user_id');
 	}
 
-	public function comments()
+	public function post()
 	{
-		return $this->hasMany('Eubby\Social\Models\SocialCommentModel', 'post_id');
+		return $this->belongsTo('Eubby\Social\Models\SocialPostModel', 'post_id');
 	}
 }

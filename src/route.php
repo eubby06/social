@@ -47,11 +47,6 @@ Route::group(array('prefix' => 'social', 'before' => 'social.auth'), function()
 			'uses' => 'Eubby\Social\Controllers\ProfileController@postEdit'
 			));
 
-		Route::get('comment/create', array(
-			'as' => 'social_comment_get_create',
-			'uses' => 'Eubby\Social\Controllers\CommentController@getCreate'
-			));
-
 		Route::post('comment/create', array(
 			'as' => 'social_comment_post_create',
 			'uses' => 'Eubby\Social\Controllers\CommentController@postCreate'

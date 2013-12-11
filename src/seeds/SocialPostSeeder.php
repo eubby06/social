@@ -8,7 +8,7 @@ class SocialPostSeeder extends Seeder
 	public function run()
 	{
 
-		DB::table('users')->delete();
+		DB::table('social_posts')->delete();
 		
 		$post = new Post();
 		$post->user_id = 13;

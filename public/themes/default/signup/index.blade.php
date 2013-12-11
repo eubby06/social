@@ -64,7 +64,7 @@
 
         <div class="form-group">
             <div class="col-sm-12">
-              <button type="submit" class="btn btn-default btn-lg col-xs-3">Sign Up</button>
+              <button type="submit" class="btn btn-primary btn-lg col-xs-3">Sign Up</button>
             </div>
         </div>
 

@@ -10,6 +10,7 @@ class SocialDatabaseSeeder extends Seeder {
 	public function run()
 	{
 		$this->call('SocialPostSeeder');
+		$this->call('SocialCommentSeeder');
 	}
 
 }

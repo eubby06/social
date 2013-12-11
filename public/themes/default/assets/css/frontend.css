@@ -1,10 +1,22 @@
 @import url("../vendor/css/bootstrap.min.css");
-*,html{font-size:12px;}
-body {
-  padding-top: 70px;
-  padding-bottom: 20px;
-}
 
-div.post a.username{font-weight:bold; display:block;}
-div.left-panel a.username{font-weight:bold;}
-div.posts {border-top:1px solid #eee;}
+*,html {font-size:12px; color:white;}
+body { padding-top: 70px; padding-bottom: 20px; background-color:#32313B; }
+
+h1 {color:#39B1C6;}
+hr {border-color:#7F909A;}
+a {color:#39B1C6; text-decoration:none}
+a:hover{color:#EC3F8C; text-decoration:none;}
+
+.btn-primary { background-color: #1FD26A; border-color: #1FD26A; color: #FFFFFF;}
+.btn-primary:hover { background-color: #39B1C6; border-color: #39B1C6;}
+
+.navbar-inverse .navbar-brand {color:#EC3F8C; font-weight:bold; font-size:26px;}
+.navbar-inverse .navbar-nav > li > a {color:#39B1C6;}
+
+div.post a.username {font-weight:bold; display:block;}
+div.left-panel > a.username {font-weight:bold;}
+div.post {border-bottom:1px solid #7F909A;}
+ul.comments > li {border-bottom:1px solid #eee; padding:3px 0px;}
+ul.comments > li p, small {color:#32313B;}
+ul.comments > a.thumbnail {margin:0px;}

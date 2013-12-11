@@ -12,7 +12,7 @@
                     <div class="form-group">
                       <input type="password" name="password" placeholder="Password" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
                   </form>
         </div>
 
@@ -29,7 +29,7 @@
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-default">Search</button>
+            <button type="submit" class="btn btn-primary">Search</button>
           </form>
       </div>
 
