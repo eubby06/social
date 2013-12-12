@@ -24,10 +24,15 @@ Route::group(array('prefix' => 'social', 'before' => 'social.auth'), function()
 {
 		Route::get('/', array(
 			'as' => 'social_home',
-			'uses' => 'Eubby\Social\Controllers\WallController@getIndex'
+			'uses' => 'Eubby\Social\Controllers\NewsFeedController@getIndex'
 			));
 
-		Route::get('wall', array(
+		Route::get('profile/{id}', array(
+			'as' => 'social_profile',
+			'uses' => 'Eubby\Social\Controllers\ProfileController@getIndex'
+			));
+
+		Route::get('wall/{username}', array(
 			'as' => 'social_wall',
 			'uses' => 'Eubby\Social\Controllers\WallController@getIndex'
 			));
@@ -37,14 +42,19 @@ Route::group(array('prefix' => 'social', 'before' => 'social.auth'), function()
 			'uses' => 'Eubby\Social\Controllers\WallController@postPost'
 			));
 
-		Route::get('profile/{id}', array(
-			'as' => 'social_profile_get_edit',
-			'uses' => 'Eubby\Social\Controllers\ProfileController@getEdit'
+		Route::get('newsfeed', array(
+			'as' => 'social_newsfeed',
+			'uses' => 'Eubby\Social\Controllers\NewsFeedController@getIndex'
 			));
 
-		Route::post('profile/{id}', array(
-			'as' => 'social_profile_post_edit',
-			'uses' => 'Eubby\Social\Controllers\ProfileController@postEdit'
+		Route::post('newsfeed/post', array(
+			'as' => 'social_newsfeed_post_post',
+			'uses' => 'Eubby\Social\Controllers\NewsFeedController@postPost'
+			));
+
+		Route::post('profile/update/{field}', array(
+			'as' => 'social_profile_post_update',
+			'uses' => 'Eubby\Social\Controllers\ProfileController@postUpdate'
 			));
 
 		Route::post('comment/create', array(

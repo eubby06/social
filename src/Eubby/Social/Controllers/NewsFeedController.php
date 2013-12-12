@@ -3,15 +3,15 @@
 use Eubby\Social\Controllers\BaseController;
 use View, Input, Redirect;
 
-class WallController extends BaseController
+class NewsFeedController extends BaseController
 {
 
-	public function getIndex($wallIdentifier)
+	public function getIndex()
 	{
-		$user = $this->getObject('user')->findByWallIdentifier($wallIdentifier);
+		$repo = $this->getObject('postRepository');
 
-		$this->layout->content = View::make("social.theme::{$this->theme}.wall.index")
-										->with('posts', $user->posts);
+		$this->layout->content = View::make("social.theme::{$this->theme}.newsfeed.index")
+										->with('posts', $repo->findAll());
 
 		return $this->layout;
 	}

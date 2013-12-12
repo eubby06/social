@@ -1,72 +1,32 @@
 @section('content')
 
-<div class="row wall">
-	<div class="left-panel col-md-5">
+<div class="row">
+	<div class="left-panel col-md-2">
 		<div class="panel panel-default">
-			<div class="panel-heading"><h4>{{ acl::getUser()->fullName() }}</h4></div>
+			<div class="panel-heading">Me</div>
 		  	<div class="panel-body">
 				<div class="col-md-12">
 				    <a href="#" class="thumbnail">
 				      <img src="{{ social_theme_asset('images/avatars/7.jpg') }}" alt="...">
 				    </a>
 				</div>
+					<a href="{{ route('social_wall', acl::getUser()->getWallIdentifier()) }}" class="username clearfix">{{ acl::getUser()->fullName() }}</a>
+					
+					<a href="{{ route('social_wall', acl::getUser()->getWallIdentifier()) }}">
+						Edit Profile <span class="glyphicon glyphicon-pencil"></span>
+					</a>
+
 		  	</div>
-		  	<div class="panel-heading">About</div>
+		  	<div class="panel-heading">Menu</div>
 		  	<div class="panel-body">
-				<span class="glyphicon glyphicon-briefcase"></span> 
-				<span class="text-muted">Worked at</span> 
-				{{ acl::getUser()->profile()->where('type_name','=','work')->first()->description }}
-				<a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				{{ Form::open(array('route' => array('social_profile_post_update', 'work'))) }}
-					
-					{{ Form::text('work', '', array(
-												'class' => 'form-control', 
-												'placeholder' => 'worked at')) }}
-					{{ Form::submit('update', array('class' => 'btn btn-primary')) }}
-					
-				{{ Form::close() }}
-			</div>
-			<div class="panel-body">
-				<span class="glyphicon glyphicon-sort-by-alphabet"></span> 
-				<span class="text-muted">Studied at</span> 
-				{{ acl::getUser()->profile()->where('type_name','=','education')->first()->description }}
-				<a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				{{ Form::open(array('route' => array('social_profile_post_update', 'education'))) }}
-					
-					{{ Form::text('education', '', array(
-												'class' => 'form-control', 
-												'placeholder' => 'studied at')) }}
-					{{ Form::submit('update', array('class' => 'btn btn-primary')) }}
-					
-				{{ Form::close() }}
-			</div>
-			<div class="panel-body">
-				<span class="glyphicon glyphicon-home"></span> 
-				<span class="text-muted">Lives in</span> 
-				{{ acl::getUser()->profile()->where('type_name','=','address')->first()->description }}
-				<a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				{{ Form::open(array('route' => array('social_profile_post_update', 'address'))) }}
-					
-					{{ Form::text('address', '', array(
-												'class' => 'form-control', 
-												'placeholder' => 'address')) }}
-					{{ Form::submit('update', array('class' => 'btn btn-primary')) }}
-					
-				{{ Form::close() }}
-			</div>
-			<div class="panel-body">
-				 <span class="glyphicon glyphicon-heart-empty"></span> 
-				 {{ acl::getUser()->profile()->where('type_name','=','status')->first()->description }}
-				 <a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				 {{ Form::open(array('route' => array('social_profile_post_update', 'status'))) }}
-					
-					{{ Form::text('status', '', array(
-												'class' => 'form-control', 
-												'placeholder' => 'status')) }}
-					{{ Form::submit('update', array('class' => 'btn btn-primary')) }}
-					
-				{{ Form::close() }}
-			</div>
+				<ul class="nav nav-pills nav-stacked">
+				  	<li><a href="#">Wall</a></li>
+				  	<li><a href="#">Info</a></li>
+				  	<li><a href="#">Photos</a></li>
+				  	<li><a href="#">Blog</a></li>
+				  	<li><a href="#">Links</a></li>
+				</ul>
+		  	</div>
 		</div>
 	</div>
 
@@ -149,6 +109,21 @@
 				</div>
 			</div>
 			@endforeach
+		</div>
+	</div>
+
+	<div class="col-md-3">
+		<div class="panel panel-default">
+		  	<div class="panel-heading">Quick Tips</div>
+		  	<div class="panel-body">
+		    Panel content
+		  	</div>
+		</div>
+		<div class="panel panel-default">
+		  	<div class="panel-heading">Recommended Pages</div>
+		  	<div class="panel-body">
+		    Panel content
+		  	</div>
 		</div>
 	</div>
 </div>

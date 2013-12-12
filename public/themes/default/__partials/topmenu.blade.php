@@ -19,7 +19,7 @@
 @else
 
       <div class="navbar-header">
-          <a class="navbar-brand" href="#">FlashBook</a>
+          <a class="navbar-brand" href="{{ route('social_home') }}">FlashBook</a>
           <ul class="nav navbar-nav">
             <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
             <li><a href="#"><span class="glyphicon glyphicon-envelope"></span></a></li>

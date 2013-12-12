@@ -8,6 +8,11 @@ hr {border-color:#7F909A;}
 a {color:#39B1C6; text-decoration:none}
 a:hover{color:#EC3F8C; text-decoration:none;}
 
+.wall .left-panel > input{color:black;}
+.wall .left-panel > label{color:black;}
+.wall .left-panel .panel-body {color:black;}
+.wall .left-panel .panel-body .glyphicon{color:black;}
+.wall .left-panel .panel-body a .glyphicon{color:#CCC;}
 .btn-primary { background-color: #1FD26A; border-color: #1FD26A; color: #FFFFFF;}
 .btn-primary:hover { background-color: #39B1C6; border-color: #39B1C6;}
 
