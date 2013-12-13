@@ -8,6 +8,7 @@ hr {border-color:#7F909A;}
 a {color:#39B1C6; text-decoration:none}
 a:hover{color:#EC3F8C; text-decoration:none;}
 
+.wall .-form{display:none;}
 .wall .left-panel > input{color:black;}
 .wall .left-panel > label{color:black;}
 .wall .left-panel .panel-body {color:black;}

@@ -1,6 +1,6 @@
 @section('content')
-
-<div class="row wall">
+ @include('social.theme::default.wall.template')
+<div class="row wall -wall-wrapper">
 	<div class="left-panel col-md-5">
 		<div class="panel panel-default">
 			<div class="panel-heading"><h4>{{ acl::getUser()->fullName() }}</h4></div>
@@ -12,12 +12,12 @@
 				</div>
 		  	</div>
 		  	<div class="panel-heading">About</div>
-		  	<div class="panel-body">
-				<span class="glyphicon glyphicon-briefcase"></span> 
+		  	<div class="panel-body -profile-work">
+		  		<span class="glyphicon glyphicon-briefcase"></span> 
 				<span class="text-muted">Worked at</span> 
 				{{ acl::getUser()->profile()->where('type_name','=','work')->first()->description }}
-				<a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				{{ Form::open(array('route' => array('social_profile_post_update', 'work'))) }}
+				<a class="-edit-icon" href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
+				{{ Form::open(array('route' => array('social_profile_post_update', 'work'), 'class' => '-form')) }}
 					
 					{{ Form::text('work', '', array(
 												'class' => 'form-control', 
@@ -30,8 +30,8 @@
 				<span class="glyphicon glyphicon-sort-by-alphabet"></span> 
 				<span class="text-muted">Studied at</span> 
 				{{ acl::getUser()->profile()->where('type_name','=','education')->first()->description }}
-				<a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				{{ Form::open(array('route' => array('social_profile_post_update', 'education'))) }}
+				<a class="-edit-icon" href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
+				{{ Form::open(array('route' => array('social_profile_post_update', 'education'), 'class' => '-form')) }}
 					
 					{{ Form::text('education', '', array(
 												'class' => 'form-control', 
@@ -44,8 +44,8 @@
 				<span class="glyphicon glyphicon-home"></span> 
 				<span class="text-muted">Lives in</span> 
 				{{ acl::getUser()->profile()->where('type_name','=','address')->first()->description }}
-				<a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				{{ Form::open(array('route' => array('social_profile_post_update', 'address'))) }}
+				<a class="-edit-icon" href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
+				{{ Form::open(array('route' => array('social_profile_post_update', 'address'), 'class' => '-form')) }}
 					
 					{{ Form::text('address', '', array(
 												'class' => 'form-control', 
@@ -57,8 +57,8 @@
 			<div class="panel-body">
 				 <span class="glyphicon glyphicon-heart-empty"></span> 
 				 {{ acl::getUser()->profile()->where('type_name','=','status')->first()->description }}
-				 <a href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
-				 {{ Form::open(array('route' => array('social_profile_post_update', 'status'))) }}
+				 <a class="-edit-icon" href=""><span class="glyphicon glyphicon-edit pull-right"></span></a> 
+				 {{ Form::open(array('route' => array('social_profile_post_update', 'status'), 'class' => '-form')) }}
 					
 					{{ Form::text('status', '', array(
 												'class' => 'form-control', 
